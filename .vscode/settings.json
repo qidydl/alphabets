@@ -1,0 +1,8 @@
+{
+    "cSpell.words": [
+        "Avalonia"
+    ],
+    "files.associations": {
+        "*.axaml": "xml"
+    }
+}
