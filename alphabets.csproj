@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputType>WinExe</OutputType>
+
+    <Nullable>enable</Nullable>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+
+    <ApplicationIcon>tupperware.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="tupperware.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="tupperware.ico" />
+  </ItemGroup>
+
+</Project>

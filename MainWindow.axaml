@@ -1,0 +1,15 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
+        x:Class="alphabets.MainWindow"
+        Icon="avares://alphabets/tupperware.ico"
+        Title="alphabets">
+    <Grid Margin="4" RowDefinitions="*,Auto,*">
+        <TextBox Grid.Row="0" Margin="0,0,0,4" AcceptsReturn="true" TextWrapping="Wrap" Text="{Binding InputText}" />
+        <ComboBox Grid.Row="1" Margin="0,0,0,4" HorizontalAlignment="Stretch"
+            Items="{Binding Alphabets}" SelectedItem="{Binding SelectedAlphabet}" />
+        <TextBox Grid.Row="2" IsReadOnly="true" TextWrapping="Wrap" FontFamily="FreeSerif" Text="{Binding OutputText}" />
+    </Grid>
+</Window>
