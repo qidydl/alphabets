@@ -21,6 +21,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore
       run: dotnet restore
+      working-directory: src
     - name: Install format tool
       run: dotnet tool install -g dotnet-format
     - name: Validate formatting
@@ -28,3 +29,4 @@ jobs:
       working-directory: src
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: src
