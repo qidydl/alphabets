@@ -10,6 +10,7 @@
         <TextBox Grid.Row="0" Margin="0,0,0,4" AcceptsReturn="true" TextWrapping="Wrap" Text="{Binding InputText}" />
         <ComboBox Grid.Row="1" Margin="0,0,0,4" HorizontalAlignment="Stretch"
             Items="{Binding Alphabets}" SelectedItem="{Binding SelectedAlphabet}" />
-        <TextBox Grid.Row="2" IsReadOnly="true" TextWrapping="Wrap" FontFamily="FreeSerif" Text="{Binding OutputText}" />
+        <TextBox Grid.Row="2" IsReadOnly="true" AcceptsReturn="true" TextWrapping="Wrap" Text="{Binding OutputText}"
+            FontFamily="FreeSerif"/>
     </Grid>
 </Window>
