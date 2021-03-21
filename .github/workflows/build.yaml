@@ -49,3 +49,8 @@ jobs:
 
 #TODO: dotnet publish -c Release -r linux-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true -p:TrimMode=Link -p:PublishReadyToRun=true -p:PublishReadyToRunShowWarnings=true
 # goes to src/bin/Release/net5.0/linux-x64/publish/
+
+# https://duckduckgo.com/?q=github+workflow+release&t=canonical&ia=web
+# https://github.com/actions/create-release
+# https://github.com/marvinpinto/action-automatic-releases
+# https://github.com/softprops/action-gh-release
