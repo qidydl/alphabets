@@ -7,13 +7,18 @@ using Avalonia.Markup.Xaml;
 
 namespace alphabets
 {
+    /// <summary>
+    /// Application-wide UI functionality.
+    /// </summary>
     public class App : Application
     {
+        /// <inheritdoc/>
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
         }
 
+        /// <inheritdoc/>
         public override void OnFrameworkInitializationCompleted()
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

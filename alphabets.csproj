@@ -5,6 +5,8 @@
     <OutputType>WinExe</OutputType>
 
     <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>

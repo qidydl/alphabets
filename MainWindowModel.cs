@@ -4,8 +4,14 @@ using System.Text;
 
 namespace alphabets
 {
+    /// <summary>
+    /// View model for the main window.
+    /// </summary>
     public class MainWindowModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindowModel"/> class.
+        /// </summary>
         public MainWindowModel()
         {
             _selectedAlphabet = Alphabets[0];
@@ -14,8 +20,14 @@ namespace alphabets
         /// <inheritdoc/>
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// The list of alphabets that text can be re-rendered in.
+        /// </summary>
         public IList<string> Alphabets { get; } = new List<string> { "Fancy", "Fancier" };
 
+        /// <summary>
+        /// The selected alphabet that text will be re-rendered in.
+        /// </summary>
         public string SelectedAlphabet
         {
             get => _selectedAlphabet;
@@ -23,38 +35,54 @@ namespace alphabets
             {
                 _selectedAlphabet = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedAlphabet)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OutputText)));
+                RefreshOutput();
             }
         }
         private string _selectedAlphabet;
 
-        public string? InputText
+        /// <summary>
+        /// The text that the user wants to translated.
+        /// </summary>
+        public string InputText
         {
             get => _inputText;
             set
             {
                 _inputText = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InputText)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OutputText)));
+                RefreshOutput();
             }
         }
-        private string? _inputText = "Enter input here";
+        private string _inputText = "Enter input here";
 
-        public string OutputText
+        /// <summary>
+        /// The input text rendered in the selected alphabet.
+        /// </summary>
+        public string OutputText => _outputText;
+        private string _outputText = "Translation displayed here";
+
+        /// <summary>
+        /// Refresh <see cref="OutputText"/> when a property has changed.
+        /// </summary>
+        private void RefreshOutput()
         {
-            get
+            var newAlphabet = _selectedAlphabet switch
             {
-                var newAlphabet = _selectedAlphabet switch
-                {
-                    "Fancy" => s_fancyAlphabet,
-                    "Fancier" => s_fancierAlphabet,
-                    _ => s_baseAlphabet
-                };
+                "Fancy" => s_fancyAlphabet,
+                "Fancier" => s_fancierAlphabet,
+                _ => s_baseAlphabet
+            };
 
-                return Translate(InputText, newAlphabet);
-            }
+            _outputText = Translate(InputText, newAlphabet);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OutputText)));
         }
 
+        /// <summary>
+        /// Translate text to a different alphabet.
+        /// </summary>
+        /// <param name="input">The text to be translated.</param>
+        /// <param name="newAlphabet">The new alphabet to render the text in.</param>
+        /// <returns>The input text rendered in the new alphabet.</returns>
         private static string Translate(string? input, string[] newAlphabet)
         {
             var builder = new StringBuilder(input);
